@@ -1,0 +1,361 @@
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600&family=Playfair+Display:wght@500;600&display=swap');
+
+/* ===============================
+   المتغيرات العامة
+   =============================== */
+:root {
+  --bg: #0c0b10;
+  --surface: #15131b;
+  --text: #f6f2f5;
+  --muted: #aaa1ad;
+  --accent: #e7a8bd;
+  --line: rgba(255, 255, 255, .09);
+  --max: 1120px;
+}
+
+/* ===============================
+   إعادة الضبط الأساسية
+   =============================== */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background:
+    radial-gradient(circle at 20% 10%, rgba(231, 168, 189, .09), transparent 30%),
+    radial-gradient(circle at 80% 70%, rgba(201, 130, 160, .07), transparent 30%),
+    var(--bg);
+  color: var(--text);
+  font-family: "DM Sans", sans-serif;
+  line-height: 1.7;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.container {
+  width: min(var(--max), calc(100% - 40px));
+  margin: auto;
+}
+
+/* ===============================
+   شريط التنقل
+   =============================== */
+.navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 50;
+  background: rgba(12, 11, 16, .72);
+  backdrop-filter: blur(18px);
+  border-bottom: 1px solid var(--line);
+}
+
+.nav-inner {
+  min-height: 72px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.logo {
+  font-family: "Playfair Display", serif;
+  font-size: 1.3rem;
+}
+
+.nav-links {
+  display: flex;
+  gap: 24px;
+  color: var(--muted);
+  font-size: .92rem;
+}
+
+.nav-links a:hover {
+  color: var(--text);
+}
+
+.menu-btn {
+  display: none;
+  background: none;
+  border: 0;
+  color: var(--text);
+  font-size: 1.5rem;
+}
+
+/* ===============================
+   قسم البطل (Hero)
+   =============================== */
+.hero {
+  min-height: 100vh;
+  display: grid;
+  place-items: center;
+  text-align: center;
+  padding: 120px 20px 80px;
+}
+
+.eyebrow,
+.section-head span {
+  color: var(--accent);
+  text-transform: uppercase;
+  letter-spacing: .2em;
+  font-size: .72rem;
+}
+
+.hero h1 {
+  font-family: "Playfair Display", serif;
+  font-size: clamp(3rem, 9vw, 7rem);
+  line-height: .98;
+  font-weight: 500;
+}
+
+.hero p {
+  max-width: 620px;
+  margin: 25px auto 0;
+  color: var(--muted);
+  font-size: 1.05rem;
+}
+
+.btn {
+  display: inline-block;
+  margin-top: 30px;
+  padding: 12px 22px;
+  border: 1px solid rgba(231, 168, 189, .35);
+  border-radius: 999px;
+  transition: .25s;
+}
+
+.btn:hover {
+  background: var(--accent);
+  color: #171017;
+}
+
+/* ===============================
+   الأقسام العامة
+   =============================== */
+section.page-section {
+  padding: 110px 0;
+}
+
+.section-head {
+  margin-bottom: 45px;
+}
+
+.section-head h2 {
+  font-family: "Playfair Display", serif;
+  font-size: clamp(2rem, 5vw, 3.5rem);
+  font-weight: 500;
+  margin-top: 8px;
+}
+
+.section-head p {
+  color: var(--muted);
+  max-width: 650px;
+  margin-top: 12px;
+}
+
+/* ===============================
+   الشبكات والبطاقات
+   =============================== */
+.story-grid,
+.memory-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 18px;
+}
+
+.card,
+.letter,
+.stat {
+  background: linear-gradient(145deg, rgba(255, 255, 255, .055), rgba(255, 255, 255, .02));
+  border: 1px solid var(--line);
+  border-radius: 22px;
+  padding: 28px;
+}
+
+.card h3 {
+  font-family: "Playfair Display", serif;
+  font-size: 1.45rem;
+  margin-bottom: 10px;
+}
+
+.card p,
+.letter p {
+  color: var(--muted);
+}
+
+/* ===============================
+   الخط الزمني
+   =============================== */
+.timeline {
+  position: relative;
+  max-width: 800px;
+  margin: auto;
+}
+
+.timeline::before {
+  content: "";
+  position: absolute;
+  left: 10px;
+  top: 0;
+  bottom: 0;
+  width: 1px;
+  background: var(--line);
+}
+
+.timeline-item {
+  position: relative;
+  padding: 0 0 45px 45px;
+}
+
+.timeline-item::before {
+  content: "";
+  position: absolute;
+  left: 5px;
+  top: 6px;
+  width: 11px;
+  height: 11px;
+  border-radius: 50%;
+  background: var(--accent);
+  box-shadow: 0 0 0 5px rgba(231, 168, 189, .08);
+}
+
+.timeline-date {
+  color: var(--accent);
+  font-size: .8rem;
+  letter-spacing: .1em;
+  margin-bottom: 7px;
+}
+
+/* ===============================
+   بطاقات الذكريات
+   =============================== */
+.memory-card {
+  min-height: 220px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+}
+
+.memory-number {
+  color: var(--accent);
+  font-size: .75rem;
+  margin-bottom: 8px;
+}
+
+/* ===============================
+   الرسالة
+   =============================== */
+.letter {
+  max-width: 780px;
+  margin: auto;
+  padding: clamp(28px, 6vw, 60px);
+}
+
+.letter p {
+  margin-bottom: 18px;
+  color: #d4cbd2;
+}
+
+.signature {
+  margin-top: 30px;
+  color: var(--accent);
+  font-family: "Playfair Display", serif;
+  font-size: 1.4rem;
+}
+
+/* ===============================
+   العدادات
+   =============================== */
+.counter {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 15px;
+  margin-top: 35px;
+}
+
+.stat {
+  text-align: center;
+}
+
+.stat strong {
+  display: block;
+  font-size: 2rem;
+  color: var(--accent);
+}
+
+.stat span {
+  color: var(--muted);
+  font-size: .85rem;
+}
+
+/* ===============================
+   التذييل
+   =============================== */
+footer {
+  border-top: 1px solid var(--line);
+  padding: 35px 0;
+  color: var(--muted);
+  text-align: center;
+}
+
+/* ===============================
+   تأثير الظهور
+   =============================== */
+.reveal {
+  opacity: 0;
+  transform: translateY(22px);
+  transition: opacity .7s ease, transform .7s ease;
+}
+
+.reveal.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ===============================
+   الاستجابة للجوال
+   =============================== */
+@media (max-width: 760px) {
+  .nav-links {
+    display: none;
+    position: absolute;
+    top: 72px;
+    left: 20px;
+    right: 20px;
+    padding: 20px;
+    flex-direction: column;
+    background: var(--surface);
+    border: 1px solid var(--line);
+    border-radius: 18px;
+  }
+
+  .nav-links.open {
+    display: flex;
+  }
+
+  .menu-btn {
+    display: block;
+  }
+
+  .story-grid,
+  .memory-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .counter {
+    grid-template-columns: 1fr;
+  }
+
+  section.page-section {
+    padding: 80px 0;
+  }
+    }
